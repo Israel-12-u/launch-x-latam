@@ -1,0 +1,13 @@
+*{
+    font-family: "Helvetica Neue",Helvetica,Arial;
+}
+
+.div{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(21, 209, 209);
+}
+.titulo-h1{
+    color: rgb(209, 21, 21);
+    font-size: 40px;
+}
