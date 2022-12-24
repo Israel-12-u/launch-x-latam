@@ -6,7 +6,7 @@ class Pila {
         this.contador = 0;
     }
     /* agrega elemento al final de la pila */
-    push(element) {
+    agregar(element) {
         this.pila[this.contador] = element;
         this.contador++;
         return this.plia;
@@ -27,12 +27,12 @@ class Pila {
         return this.contador;
     }
 
-    print() {
+    imprime() {
         console.log(this.pila);
     }
 }
 
 const miPila = new Pila();
 console.log(miPila.size());
-console.log(miPila.print());
-console.log(miPila.push(""));
+console.log(miPila.imprime());
+console.log(miPila.agregar("La roza"));
