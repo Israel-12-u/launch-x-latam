@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculadora Basica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-2 is-8">
+                    <h1 class="title"> Calculadora basica con JS</h1>
+                    <p class="subtitle">En caso de ser divición Número 1 es numerador y Numero 2 es divisor</p>
+                    <p class="subtitle">En caso de ser Potencia Número 1 es base y Numero 2 es la potencia</p>
+                    <p class="subtitle">En caso de ser Raiz Número 1 es base y Numero 2 es la raiz a calcular</p>
+                    <label class="label">Número 1</label>
+                    <input class="input is-rounded" placeholder="Numero 1" id="numero1" type="number" name="numero1">
+                    <label class="label">Número 2</label>
+                    <input class="input is-rounded" placeholder="Numero 1" id="numero2" type="number" name="numero2">
+                    <hr>
+                    <label class="label" id="result">Resultado</label>
+                    <hr>
+                    <button class="button is-primary" id="suma" onclick="suma()">Suma</button>
+                    <button class="button is-primary" id="resta" onclick="resta()">Resta</button>
+                    <button class="button is-primary" id="multiplicacion"
+                        onclick="multiplicacion()">Multiplicacion</button>
+                    <button class="button is-primary" id="divicion" onclick="divicion()">Divicion</button>
+                    <button class="button is-primary" id="potencia" onclick="potencia()">Potencia</button>
+                    <button class="button is-primary" id="raizCuadrada" onclick="raizCuadrada()">Raiz</button>
+                    <button class="button is-primary" id="residuo" onclick="residuo()">Residuo</button>
+                    <button class="button is-primary" id="reset" onclick="reset()">Reset</button>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="calculadora.js"></script>
+
+</html>

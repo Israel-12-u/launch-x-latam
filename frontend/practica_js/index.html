@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Practica de JS</title>
+    <script type="text/javascript" src="./js/pokedex.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="section">
+        <h1 class="title">Pokedex
+        </h1>
+        <input class="input is-rounded" type="text" placeholder="Numero o nombre del pokemon" id="pokeName"
+            name="pokeName">
+        <button class="button is-warning" onclick="fetchPokemon()">Buscar Pokemon</button>
+        <img src="https://pngimg.com/uploads/pokeball/pokeball_PNG22.png" alt="pokemon" id="pokeImg" name="pokeImg"
+            width="100px" height="100px">
+        <br>
+        <p id="nombre"></p>
+        <p id="abilidad"></p>
+        <p id="tipo"></p>
+        <p id="xp"></p>
+    </section>
+</body>
+
+</html>
