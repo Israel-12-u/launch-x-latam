@@ -1,6 +1,0 @@
-git comand promt installer
-visual studio code como editor predeterminado 
-npm install
-node.js install LTS
-mongodb comunity edition
-mysql comunity edition intalacion full 
