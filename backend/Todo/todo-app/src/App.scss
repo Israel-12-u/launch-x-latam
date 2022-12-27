@@ -12,3 +12,23 @@ body{
   font-family: 'Courier New', Courier, monospace;
   text-align: center;
 }
+
+.todo-list {
+  background: #ffff;
+  font-size: 18px;
+  max-width: 300px;
+  margin: auto;
+  margin-bottom: 24px;
+  padding: 8px 16px;
+  box-shadow: 0 5xp 30px rgba(0,0,0,0.2);
+
+}
+
+$colorRosa: rgb(250, 100, 203);
+$colorHover: rgb(196, 79, 195);
+@mixin button($class, $color, $colorHover){
+  .button.#{$class}{background:$color;}
+  .button.#{$class}:hover{background:$colorHover;}
+  .button.#{$class}:active{background:$color;}
+}
+@include button("pink",$colorRosa,$colorHover);
