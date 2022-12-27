@@ -8,19 +8,27 @@ console.log(nombres.nombre);
 console.log(nombres.hasOwnProperty("telefono"));
 console.log(nombres);
 
-function perro(nombre, edad) {
+/*function perro(nombre, edad) {
     let perro = Object.create(ObjetoConstructor);
     perro.nombre = nombre;
     perro.edad = edad;
     return perro;
+}*/
+
+function perro(nombre, edad) {
+    perro.nombre = nombre;
+    perro.edad = edad;
 }
 
-let ObjetoConstructor = {
+perro.prototype.habla = function () {
+    return "Soy un perro woof woof"
+}
+/*let ObjetoConstructor = {
     habla: function () {
         return "soy un perro woof woof";
     }
-};
+};*/
 
-let firulais = perro("firulais", 9);
+let firulais = new perro("firulais", 9);
 console.log(firulais.habla());
 

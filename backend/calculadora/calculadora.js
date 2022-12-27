@@ -44,7 +44,8 @@ function potencia() {
     let resultadoEtiqueta = document.getElementById("result");
     number1 = parseFloat(number1);
     number2 = parseFloat(number2);
-    let result = Math.pow(number1,number2); ;
+    let result = Math.pow(number1, number2);
+    ;
     resultadoEtiqueta.innerHTML = result;
 }
 
@@ -54,7 +55,8 @@ function raizCuadrada() {
     let resultadoEtiqueta = document.getElementById("result");
     number1 = parseFloat(number1);
     number2 = parseFloat(number2);
-    let result = Math.pow(number1,1/number2); ;
+    let result = Math.pow(number1, 1 / number2);
+    ;
     resultadoEtiqueta.innerHTML = result;
 }
 
