@@ -1,5 +1,5 @@
 console.log("Hola Mundo!!");
-
+/*Intro a objetos*/
 let nombres = {
     nombre: "Jesus", apellido: "Perez"
 };

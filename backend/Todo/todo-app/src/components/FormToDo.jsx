@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 const FormToDo = props => {
     const [description, setDescription] = useState("");
@@ -6,9 +6,9 @@ const FormToDo = props => {
     const handleSubmit = e => {
         e.preventDefault();
         console.log(description);
-        
+
         addItem({
-            done:false,
+            done: false,
             id: (+new Date()).toString(),
             description
         });
@@ -17,14 +17,15 @@ const FormToDo = props => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="todo-list">
-                <div className="input">
+                <div className="file-input">
                     <input type="text"
-                        className="text"
-                        value={description}
-                        onChange={e => setDescription(e.target.value)}
+                           className="text"
+                           value={description}
+                           onChange={e => setDescription(e.target.value)}
                     />
                     <button className="button pink"
-                        disabled={description ? "" : "disabled"}>Agragar tarea</button>
+                            disabled={description ? "" : "disabled"}>Agragar tarea
+                    </button>
                 </div>
             </div>
         </form>
