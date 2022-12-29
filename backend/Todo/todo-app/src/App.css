@@ -24,6 +24,12 @@ body {
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
 }
 
+.animationchk {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
 .button {
   outline: none;
   padding: 8px;
@@ -125,6 +131,76 @@ body {
 
 .todo_line, .todo_box, .todo_check {
   transition: stroke-dashoffset 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.todo_circle {
+  stroke: #4CAF50;
+  stroke-dasharray: 1 6;
+  stroke-width: 0;
+  transform-origin: 13.5px 12.5px;
+  transform: scale(0.4) rotate(0deg);
+  animation: none 0.4s linear;
+}
+@keyframes explote {
+  30% {
+    stroke-width: 3;
+    stroke-opacity: 1;
+    transform: scale(0.8) rotate(40deg);
+  }
+  100% {
+    stroke-width: 0;
+    stroke-opacity: 0;
+    transform: scale(1.1) rotate(60deg);
+  }
+}
+
+.todo_box {
+  stroke-dasharray: 56, 56;
+  /*define el desplasamiento dentro de un espacio*/
+  stroke-dashoffset: 0;
+  transition-delay: 0.08s;
+}
+
+.todo_check {
+  stroke: #4CAF50;
+  stroke-dasharray: 9.8, 9.8;
+  stroke-dashoffset: 9;
+  transition-delay: 0.16s;
+}
+
+.todo_line {
+  stroke-dasharray: 168, 168;
+  stroke-dashoffset: 168;
+}
+
+.todo_circle {
+  animation-delay: 0.28s;
+  animation-duration: 0.28s;
+}
+
+.todo_state:checked {
+  /* '
+  ~' sirve para modificar otras clases dentro de un evnto como si fuere otro css
+  */
+}
+.todo_state:checked ~ .todo_text {
+  transition-delay: 0s;
+  color: #B2EBF2;
+  opacity: 0.6;
+}
+.todo_state:checked ~ .todo_icon .todo_box {
+  stroke-dashoffset: 56;
+  transition-delay: 0s;
+}
+.todo_state:checked ~ .todo_icon .todo_line {
+  stroke-dashoffset: -8;
+}
+.todo_state:checked ~ .todo_icon .todo_check {
+  stroke-dashoffset: 0;
+  transition-delay: 0.24s;
+}
+.todo_state:checked ~ .todo_icon .todo_circle {
+  animation-name: explote;
 }
 
 /*# sourceMappingURL=App.css.map */
