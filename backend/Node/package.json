@@ -1,0 +1,21 @@
+{
+  "name": "holamundo",
+  "version": "1.0.0",
+  "description": "Es mi primer hola mundo",
+  "main": "holamundo.js",
+  "scripts": {
+    "start": "node holamundo.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Israel-12-u/launch-x-latam/tree/main/backend"
+  },
+  "author": "kevinlopez",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "homepage": "https://github.com/Israel-12-u/launch-x-latam/tree/main/backend"
+}
