@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo center">Launch X</a>
+                <ul class="left hide-on-med-and-down" id="nav-mobile">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/perfil">Perfil</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <form class="col s12" method="post" action="/">
+                <h1>Launch X</h1>
+                <p>Registrate a Launch X</p>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Nombre" id="first_name" name="first_name" type="text" class="validate">
+                        <label class="active" for="first_name">Nombre</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="email" id="email-adress" name="email_address" type="email" class="validate">
+                        <label class="active" for="first_name">Correo/Email</label>
+                    </div>
+                    <button class="btn waves-effect waves-light red" type="submit" name="action"
+                        id="button-enviat">Enviar
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
