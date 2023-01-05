@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Título del documento</title>
+    <!-- CDN de los íconos -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- CDN Materialize CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+
+<body id="body">
+    <ul id="mensajes" class="collection with-header"></ul>
+    <form id="form" action="">
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="input" type="text" class="validate" placeholder="mensaje">
+                <button class="btn waves-effect waves-light red" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        let form = document.getElementById("form");
+        let input = document.getElementById("input");
+        let mensajes = document.getElementById("mensajes");
+
+        let body = document.getElementById("body");
+
+        body.addEventListener("onload", function () {
+            if (Notification.permission !== "granted") {
+                Notification.requestPermission();
+            }
+        });
+
+        function mandarNotificacion(chat) {
+            if (Notification.permission !== "granted") {
+                Notification.requestPermission();
+            } else {
+                const options = {
+                    body: msg,
+                    dir: "ltr"
+                };
+                const notification = new Notification("Notification", options);
+                notification.onclick = function () {
+                    window.open("https://you.com/")
+                }
+            }
+        }
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            socket.emit("chat message", input.value);
+            input.value = "";
+        });
+
+        socket.on("chat message", function (chat) {
+            let item = document.createElement("li");
+            item.textContent = chat;
+            mensajes.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+            mandarNotificacion(chat);
+
+        })
+    </script>
+</body>
+
+</html>
