@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path');
+const path = require('path'); 
 const http = require('http');
 const PORT = process.env.PORT || 9000;
 const socket = require('socket.io');
@@ -7,11 +7,9 @@ const app = express();
 const server = http.createServer(app);
 const io = socket(server);
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
-server.listen(PORT, () => {
-    console.log('listening on port localhost:%d', PORT);
-});
+server.listen(PORT, () => console.log("El servidor esta corriendo"));
 
 const connections = [null, null];
 
@@ -24,34 +22,34 @@ io.on('connection', socket => {
         }
     }
 
-    socket.emit('player-number', playerIndex);
+    socket.emit("player-number", playerIndex);
+
     console.log(`Jugador ${playerIndex} se ha conectado`);
 
     if (playerIndex === -1) return;
     connections[playerIndex] = false;
 
-    socket.broadcast.emit("player-connection", playerIndex);
+    socket.broadcast.emit('player-connection', playerIndex);
 
-    socket.on("disconnect", () => {
+    socket.on('disconnect', () => {
         console.log(`Jugador ${playerIndex} se ha desconectado`);
         connections[playerIndex] = null;
-        socket.broadcast.emit("player-connection", playerIndex);
+        socket.broadcast.emit('player-connection', playerIndex);
     });
 
-    socket.on("player-ready", () => {
-        socket.broadcast.emit("enemy-ready", playerIndex);
+    socket.on('player-ready', () => {
+        socket.broadcast.emit('enemy-ready', playerIndex);
         connections[playerIndex] = true;
-
     });
 
-    socket.on("check-players", () => {
+    socket.on('check-players', () => {
         const players = [];
         for (const i in connections) {
-            connections[i] === null ?
-                players.push({ connected: false, ready: false }) :
-                players.push({ connected: true, ready: connections[i] })
+            connections[i] === null ? 
+                players.push({connected: false, ready: false}) : 
+                players.push({connected: true, ready: connections[i]});
         }
-        socket.emit("check-players", players);
+        socket.emit('check-players', players);
     });
 
     socket.on('fire', id => {
@@ -59,7 +57,7 @@ io.on('connection', socket => {
         socket.broadcast.emit('fire', id);
     });
 
-    socket.on('fire-reply', square => {
+    socket.on('fire-reply', square =>{
         console.log(square);
         socket.broadcast.emit('fire-reply', square);
     });
@@ -69,5 +67,5 @@ io.on('connection', socket => {
         socket.emit('timeout');
         socket.disconnect();
     }, 600000);
-});
 
+});
