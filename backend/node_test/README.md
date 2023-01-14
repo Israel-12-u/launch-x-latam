@@ -5,6 +5,4 @@
 
 # Instalacion de jasmine
 
-<sub>
-  npm install -D jasmine jasmine-node istanbul jasmine-console-reporter supertest jasmine-supertest
-</sub>
+- npm install -D jasmine jasmine-node istanbul jasmine-console-reporter supertest jasmine-supertest
