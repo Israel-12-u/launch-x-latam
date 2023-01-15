@@ -1,6 +1,6 @@
 # Refactorizacion de codigo
 
-- es hacer mas eficionete el codigo
+- Es hacer mas eficiente el codigo
 
 ### ejemplo sin refactorizar
 
