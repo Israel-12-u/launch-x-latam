@@ -9,7 +9,7 @@ mifuncion()
         console.log(data)
     })
     .catch(err => {
-        console.log("Error")
+        console.log(err)
     });
 
 /* Forma más eficiente */
