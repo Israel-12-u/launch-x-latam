@@ -36,3 +36,4 @@ npm i express
 - Sirve para crear variables de entorno, lo que nos ayuda a tener una mejor estructura de datos, al igual que tener
   datos de manera aislada, lo que permite mejorar la seguridad de coneccion o algun otro tipo
 
+- Ya que este no se sube en producción, se debe de configurar desde tu servicio de hosting
