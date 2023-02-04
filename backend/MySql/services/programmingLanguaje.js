@@ -51,9 +51,9 @@ async function deleteRegistrer(id){
     const result = db.query(
         `DELETE FROM lenguajes_protgramacion WHERE id= "${id}"`
     );
-    let message = "Error al actualizar valores del lenguaje";
+    let message = "Error al eliminar valores del lenguaje";
     if (resultado.affectedRows) {
-        message = "El lenguaje se a actualizado con exito";
+        message = "El lenguaje se a eliminado con exito";
     }
     return {message};
 }
