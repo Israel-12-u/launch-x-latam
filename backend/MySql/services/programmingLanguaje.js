@@ -47,8 +47,20 @@ async function update(id, programmingLanguaje) {
     return {message};
 }
 
+async function deleteRegistrer(id){
+    const result = db.query(
+        `DELETE FROM lenguajes_protgramacion WHERE id= "${id}"`
+    );
+    let message = "Error al actualizar valores del lenguaje";
+    if (resultado.affectedRows) {
+        message = "El lenguaje se a actualizado con exito";
+    }
+    return {message};
+}
+
 module.exports = {
     create,
     getMultiple,
-    update
+    update,
+    deleteRegistrer
 }

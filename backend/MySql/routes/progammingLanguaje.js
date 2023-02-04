@@ -27,6 +27,15 @@ router.put("/", async function (req, res, next) {
         console.error("Error => " + error.message);
         next(error);
     }
-})
+});
+
+router.delete("/", async function (req, res, next) {
+    try {
+        res.json(await programmingLanguaje.deleteRegistrer(req.query.id));
+    } catch (error) {
+        console.log("Error => " + error.message);
+        next(error);
+    }
+});
 
 module.exports = router;
