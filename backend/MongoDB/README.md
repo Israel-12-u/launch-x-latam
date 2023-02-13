@@ -21,3 +21,7 @@
 ```npm
     mpm i mongodb
 ```
+
+# Patron de vista utilzado MVC
+
+- Modelo Vista controlador => modelo mas facil de usar en patrones de diseño

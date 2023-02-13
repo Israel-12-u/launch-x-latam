@@ -2,4 +2,40 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  br
+
+  form(action="/completar", method="post")
+    table.table.table-striped.table-bordered
+      tr 
+        td Nombre
+        td Categoria
+        td Fecha
+        td Completada
+      if (typeof tasks === "undefined")
+        tr 
+          td
+      else
+        each tasks in tasks
+          tr 
+            td #{task.name}
+            td #{task.category}
+            - var date = new Date(task.date);
+            - var day = date.getDate();
+            - var month = date.getMonth() + 1;
+            - var year = date.getFullYear();
+            td #{day+"/"+month+"/"+year}
+            td
+              if (task.completed)
+                input(type="checkbox" name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+              else
+                input(type="checkbox" name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+
+      button.btn.btn-primary(type="submit") Actualizar Tareas
+    hr
+    form.well(action="/agregar",method="post")
+      label Item Name:
+      input(name ="name", type="textbox")
+      label Item Category:
+      input(type="textbox", name="category")
+      br
+      button.btn(type="submit") Añadir Tarea 

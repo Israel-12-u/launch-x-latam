@@ -1,41 +1,55 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const CosmosClient = require('@azure/cosmos').CosmosClient;
+const config = require('./config');
+const TaskList = require('./routes/tasklist');
+const Task = require('./models/task');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const cookeiParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
-var app = express();
+const app = express();
 
-// view engine setup
+/* Mostrar los views de JADE como HTML con Express */
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookeiParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+const cosmosClient = new CosmosClient({
+  endpoint: config.host,
+  key: config.authKey
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+const taskObject = new Task(cosmosClient, config.databaseID, config.containerId);
+const taskList = new TaskList(taskObject);
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+taskObject.init(err => {
+  console.log(err);
+}).catch(err => {
+  console.log(err);
+  process.exit(1);
+});
+
+app.get('/', (req, res, next) => taskList.showTasks(req, res).catch(next));
+app.post('/agregar', (req, res, next) => taskList.addTask(req, res).catch(next));
+
+app.post('/completar', (req, res, next) => taskList.completeTask(req, res).catch(next));
+
+app.set('view engine', 'jade');
+
+/* Manejar un 404 */
+
+app.use(function(req, res, next){
+  const err = new Error('Not found');
+  err.status = 404;
+  next(err);
 });
 
 module.exports = app;
