@@ -10,7 +10,7 @@ class CodigoCesar:  # Definimos la clase
             desifrado = ""  # Si respuesta es S o s
         # Insertar tu cadena desde el teclado
             cadena = input("Inserta tu cadena ")
-         # Pregunta la accion que quieres hacer con la cadena
+        # Pregunta la accion que quieres hacer con la cadena
             preguta = input("Desea cifrar o desifrar? ")
             if preguta == "Cifrar" or preguta == "cifrar":  # si es cifrar
                 for scannear in cadena:  # lee la variable cadena
