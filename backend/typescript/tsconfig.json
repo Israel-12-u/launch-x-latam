@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES6" 
+    },
+    "include": ["src"] /* carpera donde se va a compilar o se estan guardando los archivos de ts */
+}

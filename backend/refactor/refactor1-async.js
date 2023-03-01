@@ -4,6 +4,7 @@ function mifuncion() {
     return ("Algo");
 }
 
+/* Forma no refactorisada */
 mifuncion()
     .then(data => {
         console.log(data)
